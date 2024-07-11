@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ict.bestmotion.com/TGoodWebService/WebService.asmx/getCurSpeedHeartData"></script>
+</head>
+
+<body>
+
+<header>
+    <div class="left">
+        <div class="logo"><img src="images/標誌.png" alt=""/><a href="#" id="logo" onclick="openWindow(this.id)"></a>  
+        <div class="board"><p>Dashboard</p><a href="#" id="board" onclick="openWindow(this)"></a></div>
+        <div id="light_logo" class="white_content"> 
+            <img src='img/鴨.jpg'/>  
+        </div>
+        <div id="light_board" class="white_content">  
+            <img src='img/鴨.jpg'/>  
+        </div>
+        <div id="fade" class="black_overlay"  onclick="closeWindow()">
+        </div>    
+    </div>          
+    <!-- end of dashboard head -->
+    </div>
+
+    <div class="memberblocks">
+        <img src="Images/A哥.png" alt=""/>
+        <div class="memberblockPredict">
+            <div class="content1">
+            <div>
+                <h1>User Information</h1>
+            </div>
+                <h7>Age</h7>
+                <input type="text" id="age">
+                <h8>Watchnumber</h8>
+                <h9>W007</h9>
+                <div id="watch"></div>
+            </div>
+        <div class="memberblockadvice">
+            <div class="content1">
+            <div>
+                <h2>Exercise suggestions</h2>
+            </div>
+            <div class="tips">
+                <ul>
+                    <li>Warm Up</li>
+                    <li>Stay Hydrated</li>
+                    <li>Set Goals</li>
+                    <li>Safety First</li>
+                    <li>Have Fun</li>
+                </ul>
+            </div>
+            </div>
+        </div>   
+        </div>
+    </div>
+
+    <!-- end of memberblock -->
+
+    <div class="middle">
+        <div class="heartrateblocks">
+            <div class="heartrateblockcurrent">
+                <div class="content2">
+                    <div>
+                        <h3>Current heart rate</h3>
+                    </div>
+                        <img src="Images/心率.png" alt=""/>
+                        <div id="currentheart"></div>
+                        <p>bpm</p>
+                </div>
+
+            </div>
+            <div class="heartrateblockoptimal">
+                <div class="content3">
+                    <div>
+                        <h4>Optimal heart rate</h4>
+                        <p id="Optimalheartrate"></p>
+                    </div>
+                        <img src="Images/心率.png" alt=""/>
+                        <p>bpm</p>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <!-- end of heart rate block -->
+
+    <div class="right">
+        <div class="speedblocks">
+            <div class="speedblockcurrent">
+                <div class="content4">
+                    <div>
+                        <h5>Current speed</h5>
+                    </div>
+                         <img src="Images/轉速.png" alt=""/>
+                         <div id="currentspeed"></div>
+                         <p>rpm</p>
+                </div>
+            </div>
+            <div class="speedblockexcept">
+                <div class="content5">
+                    <div>
+                        <h6>Excepted speed</h6>
+                    </div>
+                        <img src="Images/轉速.png" alt=""/>
+                        <div id="Exceptedspeed"></div>
+                        <p>rpm</p>
+                </div>
+            </div>
+        </div>
+     </div>
+
+      <!-- end of speed block -->
+
+    <div class="bottom">
+        <div class="warningblock">
+            <img src="Images/警告.png" alt=""/>
+            <p>Pay attention to whether your heart rate is higher than your optimal heart rate</p>
+        </div>
+    </div>
+
+    <!-- end of warning block -->
+
+    <div class="background">
+        <div class="rightdownB">
+            <img src="Images/Ellipse 2.png" alt=""/>
+        </div>
+        <div class="rightdownA">
+            <img src="Images/Ellipse 5.png" alt=""/>
+        </div>
+        <div class="leftupB">
+            <img src="Images/Ellipse 4.png" alt=""/>
+        </div>
+        <div class="leftupA">
+            <img src="Images/Ellipse 3.png" alt=""/>
+        </div>
+    </div>
+
+    <script>
+ jQuery(document).ready(function ($) {
+    function fetchData() {
+        $.ajax({
+            type: 'POST',
+            url: "https://ict.bestmotion.com/TGoodWebService/WebService.asmx/getCurSpeedHeartData",
+            contentType: 'application/x-www-form-urlencoded',
+            dataType: 'text',
+            data: {},
+            success: function (data) {
+                console.log("Received data: " + data);
+                // 解析響應數據
+                //var data = data.trim(); // 去除兩端的空格
+
+                var xmlDoc = $.parseXML(data);
+				var data = $(xmlDoc).text();
+                
+                var dataArray = data.split(',');
+                console.log("Split data array: " + dataArray);
+
+                if (dataArray.length >= 3) {
+                    var currentSpeed = parseFloat(dataArray[0]).toFixed(1);;// 保留一位小數
+                    var currentHeart = Math.floor(parseFloat(dataArray[1])); // 捨去小數點
+                    var exceptedSpeed = parseFloat(dataArray[2]).toFixed(1); // 保留一位小數
+
+                    // 將數據顯示在HTML元素中
+                    $('#currentspeed').html(currentSpeed);
+                    $('#currentheart').html(currentHeart);
+                    $('#Exceptedspeed').html(exceptedSpeed);
+                } else {
+                    // 如果無法提取
+                    $('#currentspeed').html('無法提取值');
+                    $('#currentheart').html('無法提取值');
+                    $('#Exceptedspeed').html('無法提取值');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert('Error to get data,' + textStatus + ': ' + errorThrown);
+            }
+        });
+    }
+
+    // 初始加载數據
+    fetchData();
+
+    // 每5秒刷新數據
+    setInterval(fetchData, 5000);
+});
+
+    </Script>
+
+
+</header>
+
+<script>
+    const ageInput = document.getElementById("age");
+    ageInput.addEventListener("input", calculateOptimalheartrate);
+    function calculateOptimalheartrate(){
+        const ageText =ageInput.value;
+        const age = parseInt(ageText);
+        const lowerLimit = Math.floor((220 - age) * 0.6);
+        const upperLimit = Math.floor((220 - age) * 0.8);
+        document.getElementById("Optimalheartrate").innerHTML=`${lowerLimit} ~ ${upperLimit} `;
+    }
+
+</script>
+
+
+
+    
+</body>
+</html>

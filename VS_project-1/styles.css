@@ -1,0 +1,631 @@
+:root{
+    --red-color:#FF0000;
+    --white-color:#FFFFFF;
+    --gray-color:#676C69;
+    --lightgray-color:#D9D9D9;
+    --black-color:#000000;
+    --green1-color:#0CF04C;
+    --green2-color:#57F396;
+    --green3-color:#7BF6AD;
+    --green4-color:#CAF0D9;
+}
+
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: "Outfit", sans-serif;
+    color: #FFFFFF;
+}
+
+/* Header */
+
+header{
+    background: #000;
+    background-blend-mode: darken;
+    width: 1440px;
+    height: 1058px;
+    margin: 0 auto;
+}
+
+
+/* left */
+
+.left{
+    max-width: 1065px;
+    margin: 0 auto;
+    z-index: 1; 
+    position: relative;
+ }
+
+.left img {
+    float: left;
+    vertical-align: middle;   
+    /* 垂直居中對齊 */
+    cursor: pointer;
+}
+
+.left p {
+    vertical-align: middle; 
+    display: inline-block; 
+    /* 視為塊元素，實現水平對齊 */
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 33px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #00C0A5;
+	z-index: 1001;
+	-moz-opacity: 0.8;
+	opacity: .80;
+	filter: alpha(opacity=50);
+}
+
+.white_content {
+	border-radius: 20px;
+	display: none;
+	position: absolute;
+	top: 30%;
+	left: 40%;
+	background-color: #FFFFFF;
+	z-index: 1002;
+ /* 数字的大小指明了div的相对层，数字大的在上层 */
+	overflow: auto;
+}  
+
+/* member */
+
+.memberblocks{
+    margin: 0px 220px;
+    border-radius: 15px;
+    background: rgba(217, 217, 217, 0.60);
+    width: 255px;
+    height: 900px;
+    flex-shrink: 0;
+    z-index: 1; 
+    position: relative;
+  
+}
+
+.memberblockPredict{
+    border-radius: 15px;
+    background: rgba(103, 108, 105, 0.60);
+    width: 242px;
+    height: 127px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 45%;
+    left: 53%;
+    transform: translate(-53%, -45%);
+}
+
+.memberblockadvice{
+    border-radius: 15px;
+    background: rgba(103, 108, 105, 0.60);
+    width: 242px;
+    height: 380px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 30%;
+    left: 53%;
+    transform: translate(-53%, 30%);
+}
+
+.memberblocks img{
+    width: 190px;
+    height: 250px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 6%;
+    left: 53%;
+    transform: translate(-53%, -6%);
+}
+
+.content1 h1{
+    color: #FFF;
+    text-align: left;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+    position: absolute;
+    top: -6%;
+    left: 3%;
+    
+}
+
+.content1 h7 {
+    color: #FFF;
+    text-align: left;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 60%;
+    left: 3%;
+}
+
+
+input#age{
+    color: #0CF04C;
+    text-align: left;
+    font-family: Outfit;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 60px; 
+    padding: 5px;
+    position: absolute;
+    top: 56%;
+    left: 23%;
+    background-color: transparent;
+}
+
+
+.content1 h8{
+    color: #FFF;
+    text-align: left;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 30%;
+    left: 3%;
+}
+
+.content1 h9{
+    color:#0CF04C;
+    text-align: left;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+}
+
+.tips{
+    color: #0CF04C;
+    font-family: Outfit;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 279px;
+    height: 53px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
+
+.tips ul{
+    list-style-type: decimal; /* 使用数字作为列表项的前缀 */
+    padding-left: 20px; /* 添加左侧内边距以缩进列表项 */
+}
+
+.tips li{
+    margin-bottom: 10px; /* 添加间距以分隔列表项 */
+}
+
+.content1 h2{
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+    position: absolute;
+    top:-3%;
+    left: 3%;
+}
+
+ /* middle */
+
+ .middle{
+    max-width: 1065px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background: rgba(217, 217, 217, 0.60);
+    width: 345px;
+    height: 835px;
+    flex-shrink: 0;
+    z-index: 1; 
+    position: relative;
+    display: block;
+    top: -94%;
+    left: 0%;
+    
+}
+
+.heartrateblocks{
+    border-radius: 15px;
+    background: rgba(103, 108, 105, 0.60);
+    width: 312px;
+    height: 331px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 6%;
+    left: 4.5%;
+}
+
+.heartrateblockoptimal{
+    border-radius: 15px;
+    background: rgba(103, 108, 105, 0.60);
+    width: 312px;
+    height: 331px;
+    flex-shrink: 0; 
+    position: absolute;
+    display: block;
+    top: 120%;
+    left: 0.5%;
+}
+
+
+.content2 h3{
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top: -4%;
+    left: 2%;
+}
+
+.content2 img{
+    width: 342px;
+    height: 79px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 25%;
+    left: -5%;
+}
+
+#currentheart{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 67px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top:58%;
+    left: 33%;
+}
+.content2 p{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 279px;
+    height: 85px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 53%;
+    left: 38%;
+}
+
+.content3 h4{
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top: -6%;
+    left: 2%;
+}
+
+.content3 img{
+    width: 342px;
+    height: 79px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 25%;
+    left: -5%;
+}
+
+#Optimalheartrate{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top:45%;
+    left: -10%;
+}
+
+.content3 p{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 279px;
+    height: 85px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 37%;
+}
+
+/* right */
+
+.right{
+    max-width: 1065px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background: rgba(217, 217, 217, 0.60);
+    width: 345px;
+    height: 835px;
+    flex-shrink: 0;
+    z-index: 1; 
+    position: relative;
+    display: block;
+    top: -173%;
+    left: 25%;
+}
+
+.speedblockcurrent{
+    border-radius: 15px;
+    background: rgba(103, 108, 105, 0.60);
+    width: 312px;
+    height: 331px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 6%;
+    left: 4.5%;
+}
+
+.speedblockexcept{
+    border-radius: 15px;
+    background: rgba(103, 108, 105, 0.60);
+    width: 312px;
+    height: 331px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 53.5%;
+    left: 4.5%;
+}
+
+.content4 h5{
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top: -8%;
+    left: 2%;
+}
+
+.content4 img{
+    width: 248px;
+    height: 162px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: 5%;
+    left: 10%;
+}
+
+#currentspeed{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 67px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top:58%;
+    left: 35%;
+}
+
+.content4 p{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top: 53%;
+    left: 70%;
+}
+
+
+.content5 h6{
+    color: #FFF;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top: -12%;
+    left: 2%;
+}
+
+.content5 img{
+    width: 248px;
+    height: 162px;
+    flex-shrink: 0;  
+    position: absolute;
+    display: block;
+    top: 5%;
+    left: 10%;
+}
+
+#Exceptedspeed{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top:56%;
+    left: 35%;
+}
+
+.content5 p{
+    color: #0CF04C;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 70%;
+}
+
+/* bottom */
+
+.bottom{
+    max-width: 1065px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background: rgba(217, 217, 217, 0.60);
+    width: 705px;
+    height: 145px;
+    flex-shrink: 0;
+    z-index: 1; 
+    position: relative;
+    display: block;
+    top: -171.7%;
+    left: 12.5%;
+}
+
+.warningblock img{
+    width: 85px;
+    height: 88px;
+    flex-shrink: 0; 
+    position: absolute;
+    display: block;
+    top: 20%;
+    left: 5%;
+}
+
+.warningblock p{
+    color: #F00;
+    text-align: center;
+    font-family: Outfit;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 501px;
+    height: 99px;
+    flex-shrink: 0;
+    position: absolute;
+    display: block;
+    top: -13%;
+    left: 15%;
+}
+
+/* background */
+
+.background{
+    width: 1440px;
+    height: 1058px;
+    z-index: 0; 
+    position: relative;
+}
+
+.rightdownB img{
+    position: absolute;
+    display: block;
+    top: -266.7%;
+    left: 30.5%;
+}
+
+.rightdownA img{
+    position: absolute;
+    display: block;
+    top: -241%;
+    left: 44%;
+}
+
+.leftupB img{
+    position: absolute;
+    display: block;
+    top: -267%;
+    left: 0%;
+}
+
+.leftupA img{
+    position: absolute;
+    display: block;
+    top: -267%;
+    left: 0%;
+}
